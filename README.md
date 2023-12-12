@@ -1,31 +1,38 @@
-# Path Finding
+# Text-based maze solver
 
 Contains A* algorithm (manhattan heuristic; however, this can easily be changed by creating a euclidean_distance function in the API.py file for example) and Dijkstra's algorithm implementations using a custom text file maze solving API.
 
-The maze_files directory contains txt files which represent mazes. They are to be used with any txt file which follows the format laid out in maze_files/format.md; the source of this format is [mackorone's maze files](https://github.com/micromouseonline/mazefiles) from micro mouse online. Hence, any maze files foudn there will work with this repository. Please note however that you will need to add a goal node, `G`, and start node, `S`, if not already present in those files.
+The API contains implementations of the A* algorithm using the Manhattan heuristic and Dijkstra's algorithm for solving mazes through custom text file representations.
 
-----
-# Text Implementations
+The A* algorithm uses a Manhattan heuristic; however, you may choose to use a different heuristic function - this may be done by declaring your own function in the `API.py` file under the API directory.
 
-### Standard maze solve
+Dijkstra's algorithm is also available as an alternative maze-solving method within this API.
+
+Users can interact with these algorithms and the maze-solving API by using the specified custom text file format to represent mazes. Moreover, the API is designed to support modifications or enhancements to the algorithms by updating the code within the API.py file, allowing you to experiment with different heuristic functions as mentioned earlier or to potentially introduce other algorithms within the API structure.
+
+The directory named `maze_files` contains text files that represent various mazes. However, this implementation supports the use of additional text files beyond those found in this specific directory. Any file conforming to the format described in `maze_files/format.md` will work correctly (source: [mackorone's maze files repository](https://github.com/micromouseonline/mazefiles)). You may find these in [mackorone's maze files repository](https://github.com/micromouseonline/mazefiles); any file obtained from this repository will be compatible.
+
+It is important to note that if the files sourced from this repository do not already include a start node designated as `S` and a goal node labeled `G`, you will need to manually add these characters to the files to ensure their compatibility with the implementation.
+
+-----
+# Standard maze solve
 
 Run the following command in either the dijkstra or a-star directories:
 `python main.py {maze file directory}`
 
 
-#### A* Algorithm with Manhattan Heuristic (text implementation):
+#### A* Algorithm with Manhattan Heuristic
 https://github.com/Raum12/path-finding/assets/116556858/d044ae0f-345f-40e4-88ea-8eb7c239622b
 
 
-#### Dijkstra's Algorithm (text implementation):
+#### Dijkstra's Algorithm:
 https://github.com/Raum12/path-finding/assets/116556858/e304d47b-f419-4389-81d5-9e9f7a2afdc4
 
 -----
-## Unit tests
+# Unit tests
 Run the following command in either the dijkstra or a-star directories:
 `python main.py {maze file directory} --unittest {number of unittest iterations}`
 
+The video below demonstrates this more clearly for the A* algorithm.
 
 https://github.com/Raum12/path-finding/assets/116556858/9ac0a037-b9c1-4710-afab-977b41feee95
-
-https://github.com/Raum12/path-finding/assets/116556858/5f05abe0-175f-4777-a176-92dad235ea95
