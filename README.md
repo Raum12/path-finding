@@ -29,6 +29,6 @@ Run the following command in either the dijkstra or a-star directory (depending 
 
 `python main.py {maze file directory} --unittest {number of unittest iterations}`
 
-The video below demonstrates this more clearly for the A* algorithm.
+The video below demonstrates this more clearly for Dijkstra's algorithm.
 
-https://github.com/Raum12/path-finding/assets/116556858/9ac0a037-b9c1-4710-afab-977b41feee95
+https://github.com/Raum12/path-finding/assets/116556858/fb8e0ac8-e828-4592-ae97-ab965a6abe11
