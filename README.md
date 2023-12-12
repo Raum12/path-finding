@@ -15,13 +15,9 @@ Run the following command in either the dijkstra or a-star directories:
 
 `python main.py {maze file directory}`
 
+https://github.com/Raum12/path-finding/assets/116556858/f544465c-8e92-4f37-8b60-cd505fe7d2d2
 
-#### A* Algorithm with Manhattan Heuristic
-https://github.com/Raum12/path-finding/assets/116556858/d044ae0f-345f-40e4-88ea-8eb7c239622b
-
-
-#### Dijkstra's Algorithm:
-https://github.com/Raum12/path-finding/assets/116556858/e304d47b-f419-4389-81d5-9e9f7a2afdc4
+https://github.com/Raum12/path-finding/assets/116556858/799d5379-d214-47ea-a11f-a4b504402faa
 
 -----
 # Unit tests
