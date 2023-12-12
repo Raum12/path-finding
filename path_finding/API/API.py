@@ -1,5 +1,5 @@
 from .node import node
-import sys, time
+import sys, time, statistics
 
 
 def read_maze(maze, filename):
@@ -17,6 +17,9 @@ def unit_test(loops: int, algorithm, file):
     sum = 0
     max = None
     min = None
+    set = []
+
+    unittest_start = time.time()
 
     for i in range(loops):
         maze, coord_space, start, end, max_x, max_y = init(file)
@@ -30,6 +33,7 @@ def unit_test(loops: int, algorithm, file):
 
         time_elapsed = end_time - start_time
         sum += time_elapsed
+        set.append(time_elapsed)
 
         if max is None or time_elapsed > max:
             max = time_elapsed
@@ -42,7 +46,9 @@ def unit_test(loops: int, algorithm, file):
         print(f"Finished in: {time_elapsed}s")
         print("-------------------------------------\n")
     
-    print(f"Mean: {sum/loops} | Min({min_run}): {min}s | Max({max_run}): {max}s\n")
+    unittest_end = time.time()
+    print(f"Unittest took: {unittest_end - unittest_start}s")
+    print(f"Mean: {sum/loops}s | Standard deviation: {statistics.stdev(set)}s | Min({min_run}): {min}s | Max({max_run}): {max}s\n")
 
 
 def validate(maze, index: tuple):
