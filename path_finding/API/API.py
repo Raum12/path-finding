@@ -1,5 +1,5 @@
 from .node import node
-import sys
+import sys, time
 
 
 def read_maze(maze, filename):
@@ -10,6 +10,39 @@ def read_maze(maze, filename):
         column = column.strip()
         row = [i for i in column]
         maze.append(row)
+
+def unit_test(loops: int, algorithm, file):
+    print(f"\nstarting unit test of length {loops}...\n")
+
+    sum = 0
+    max = None
+    min = None
+
+    for i in range(loops):
+        maze, coord_space, start, end, max_x, max_y = init(file)
+        run_string = f"Run {i+1}"
+        
+        print(f"{run_string}:")
+
+        start_time = time.time()
+        algorithm(start, end, coord_space, maze)
+        end_time = time.time()
+
+        time_elapsed = end_time - start_time
+        sum += time_elapsed
+
+        if max is None or time_elapsed > max:
+            max = time_elapsed
+            max_run = run_string
+        
+        if min is None or time_elapsed < min:
+            min = time_elapsed
+            min_run = run_string
+
+        print(f"Finished in: {time_elapsed}s")
+        print("-------------------------------------\n")
+    
+    print(f"Mean: {sum/loops} | Min({min_run}): {min}s | Max({max_run}): {max}s\n")
 
 
 def validate(maze, index: tuple):
@@ -71,6 +104,8 @@ def init(file):
     maze = []
     read_maze(maze, file)
 
+    coord_space = map_nodes(maze)
+
     max_x = 0
     max_y = 0
     for coord in map_nodes(maze):
@@ -82,7 +117,20 @@ def init(file):
         if to_check[1] > max_y:
             max_y = to_check[1]
 
-    return maze, max_x, max_y
+    # find key nodes
+
+    key_nodes = find_key_nodes(maze, coord_space)
+    start_coords = key_nodes['start']['coordinate']
+    end_coords = key_nodes['goal']['coordinate']
+
+    for node in coord_space:
+        if node.center['coordinate'] == start_coords:
+            start = node
+        if node.center['coordinate'] == end_coords:
+            end = node
+
+
+    return maze, coord_space, start, end, max_x, max_y
 
 
 def find_key_nodes(maze, coord_space):

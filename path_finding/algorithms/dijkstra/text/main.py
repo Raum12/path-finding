@@ -1,37 +1,39 @@
-import sys, time, os
+import sys, time
 
 sys.path.append('../../../../')
 from path_finding.API import API
 
-
+    
 def main():
-    if len(sys.argv) != 2:
-        print("USAGE ERROR: python main.py maze_file_path")
-        return None
-
     file = sys.argv[1]
 
-    maze, max_x, max_y = API.init(file)
-    coord_space = API.map_nodes(maze)
+    maze, coord_space, start, end, max_x, max_y = API.init(file)
 
-    key_nodes = API.find_key_nodes(maze, coord_space)
-    start_coords = key_nodes['start']['coordinate']
-    end_coords = key_nodes['goal']['coordinate']
+    if len(sys.argv) == 2:
+        
+        start_time = time.time()
+        path = API.dijkstra(start, end, coord_space, maze)
+        end_time = time.time() 
 
-    for node in coord_space:
-        if node.center['coordinate'] == start_coords:
-            start = node
-        if node.center['coordinate'] == end_coords:
-            end = node
+        API.mark_path(path, maze)
+        
 
-    start_time = time.time()
-    path = API.dijkstra(start, end, coord_space, maze)
+        API.visualise(maze)
+        print(f"Execution time: {end_time - start_time}")
 
-    API.mark_path(path, maze)
-    end_time = time.time() 
+    elif sys.argv[2] == "--unittest":
 
-    API.visualise(maze)
-    print(f"Execution time: {end_time - start_time}")
-
+        if len(sys.argv) == 4:
+            API.unit_test(int(sys.argv[3]), API.dijkstra, file)
+        
+        else:
+            print("\nUSAGE: python main.py maze_file_path --unittest number_of_test_iterations\n")
+    
+    else:
+        print("\nUSAGE: python main.py maze_file_path")
+        print("\nTo perform unit tests: python main.py maze_file_path --unittest number_of_test_iterations\n")
+    
+        return None
+    
 
 main()
