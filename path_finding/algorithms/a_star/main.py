@@ -1,6 +1,6 @@
 import sys, time, os
 
-sys.path.append('../../../../')
+sys.path.append('../../../')
 from path_finding.API import API
 
 def main():
