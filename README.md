@@ -2,6 +2,8 @@
 
 Contains A* algorithm (manhattan heuristic; however, this can easily be changed by creating a euclidean_distance function in the API.py file for example) and Dijkstra's algorithm implementations using a custom text file maze solving API.
 
+The maze_files directory contains txt files which represent mazes. They are to be used with any txt file which follows the format laid out in maze_files/format.md; the source of this format is [mackorone's maze files](https://github.com/micromouseonline/mazefiles) from micro mouse online. Hence, any maze files foudn there will work with this repository. Please note however that you will need to add a goal node, `G`, and start node, `S`, if not already present in those files.
+
 ----
 # Text Implementations
 
