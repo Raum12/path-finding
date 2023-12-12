@@ -212,3 +212,34 @@ def a_star(start: node, end: node, coord_space, maze):
 
     # path not found
     return None 
+
+# use manhattan for edge length 
+def dijkstra(start: node, end: node, coord_space, maze):
+    queue = [] # Q
+    empty_set = [] # S
+
+    start.dist = 0
+
+    for coord in coord_space:
+        queue.append(coord)
+
+    while len(queue) != 0:
+        current = min(queue, key=lambda node: node.dist)
+        queue.remove(current)
+        empty_set.append(current)
+
+        for neighbour in get_neighbours(current, maze, coord_space):
+            tentative_dist = current.dist + manhattan_distance(current, neighbour)
+
+            if tentative_dist < neighbour.dist:
+                neighbour.dist = tentative_dist
+                neighbour.parent = current
+
+    path = []
+    current = end
+    
+    while current.parent is not None:
+        path.append(current)
+        current = current.parent 
+
+    return path[::-1] 

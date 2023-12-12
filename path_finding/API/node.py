@@ -1,5 +1,5 @@
 class node:
-    def __init__(self, center: dict, maze_indexes: dict, parent=None, g_cost=None, f_cost=None, h_cost=None):
+    def __init__(self, center: dict, maze_indexes: dict):
 
         # format: center = {"coordinate": (x, y), "index": (i, j)} 
         self.center = center
@@ -7,11 +7,15 @@ class node:
         # format: maze_indexes = {"left": (i, j), "center": (i, j+1), "right": (i, j+2)}
         self.maze_indexes = maze_indexes
         
-        self.parent = parent
+        self.parent = None
 
-        self.g_cost = g_cost
-        self.f_cost = f_cost 
-        self.h_cost = h_cost
+        # A* attributes
+        self.g_cost = None
+        self.f_cost = None
+        self.h_cost = None
+
+        # Dijkstra's attributes
+        self.dist = float('inf')
     
     def find_center(self):
         return self.center
