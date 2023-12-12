@@ -5,7 +5,7 @@ from path_finding.API import API
 
     
 def main():
-    if len(sys.argv) == 2:
+    if len(sys.argv) >= 2:
         try:
             f = open(sys.argv[1])
         except FileNotFoundError:
@@ -15,6 +15,8 @@ def main():
             return 1
         
         file = sys.argv[1]
+
+    if len(sys.argv) == 2:
         maze, coord_space, start, end, max_x, max_y = API.init(file)
 
         start_time = time.time()
