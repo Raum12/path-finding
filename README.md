@@ -1,10 +1,6 @@
 # Text-based maze solver
 
-The API contains implementations of the A* algorithm and Dijkstra's algorithm for solving mazes through custom text file representations.
-
-The A* algorithm uses a Manhattan heuristic; however, you may choose to use a different heuristic function - this may be done by declaring your own function in the `API.py` file under the API directory.
-
-Dijkstra's algorithm is also available as an alternative maze-solving method within this API.
+The API contains implementations of the A* algorithm and Dijkstra's algorithm for solving mazes through custom text file representations. The A* algorithm uses a Manhattan heuristic; however, you may choose to use a different heuristic function - this may be done by declaring your own function in the `API.py` file under the API directory.
 
 Users can interact with these algorithms and the maze-solving API by using the specified custom text file format to represent mazes. Moreover, the API is designed to support modifications or enhancements to the algorithms by updating the code within the API.py file, allowing you to experiment with different heuristic functions as mentioned earlier or to potentially introduce other algorithms within the API structure.
 
