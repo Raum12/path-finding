@@ -16,6 +16,7 @@ It is important to note that if the files sourced from this repository do not al
 # Standard maze solve
 
 Run the following command in either the dijkstra or a-star directories:
+
 `python main.py {maze file directory}`
 
 
@@ -28,7 +29,8 @@ https://github.com/Raum12/path-finding/assets/116556858/e304d47b-f419-4389-81d5-
 
 -----
 # Unit tests
-Run the following command in either the dijkstra or a-star directories:
+Run the following command in either the dijkstra or a-star directory (depending on which algorithm you want to test):
+
 `python main.py {maze file directory} --unittest {number of unittest iterations}`
 
 The video below demonstrates this more clearly for the A* algorithm.
