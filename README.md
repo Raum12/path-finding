@@ -15,9 +15,9 @@ Run the following command in either the dijkstra or a-star directories:
 
 `python main.py {maze file directory}`
 
-https://github.com/Raum12/path-finding/assets/116556858/f544465c-8e92-4f37-8b60-cd505fe7d2d2
+https://github.com/Raum12/path-finding/assets/116556858/1825ecbb-7c4c-4aad-85c0-15dd366ff6eb
 
-https://github.com/Raum12/path-finding/assets/116556858/799d5379-d214-47ea-a11f-a4b504402faa
+https://github.com/Raum12/path-finding/assets/116556858/42fdd2a9-b627-4186-9c43-d80234554d2b
 
 -----
 # Unit tests
@@ -27,4 +27,4 @@ Run the following command in either the dijkstra or a-star directory (depending 
 
 The video below demonstrates this more clearly for Dijkstra's algorithm.
 
-https://github.com/Raum12/path-finding/assets/116556858/fb8e0ac8-e828-4592-ae97-ab965a6abe11
+https://github.com/Raum12/path-finding/assets/116556858/57b583fe-82ef-4520-8387-f008d1632834
