@@ -24,7 +24,6 @@ def main():
 
         API.mark_path(path, maze)
         
-
         API.visualise(maze)
         print(f"Execution time: {end_time - start_time}")
 

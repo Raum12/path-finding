@@ -1,7 +1,6 @@
 from .node import node
 import sys, time, statistics
 
-
 def read_maze(maze, filename):
     maze_file = open(filename, "r")
     columns = maze_file.readlines()
@@ -50,7 +49,6 @@ def unit_test(loops: int, algorithm, file):
     print(f"Unittest took: {unittest_end - unittest_start}s")
     print(f"Mean: {sum/loops}s | Standard deviation: {statistics.stdev(set)}s | Min({min_run}): {min}s | Max({max_run}): {max}s\n")
 
-
 def validate(maze, index: tuple):
     """Checks whether a given index has an 'o' character above it"""
 
@@ -58,7 +56,6 @@ def validate(maze, index: tuple):
         return False
     else:
         return True
-
 
 def map_nodes(maze):
     """maps all traversable nodes' center coordinates to index in the maze array"""
@@ -93,8 +90,7 @@ def map_nodes(maze):
 
         y_count += 1
 
-    return coord_space
-                
+    return coord_space          
         
 def visualise(maze, max_x=None, max_y=None):
     if max_x is not None and max_y is not None:
@@ -104,7 +100,6 @@ def visualise(maze, max_x=None, max_y=None):
     for row in maze:
         print(''.join(row))
     print('\n')
-
 
 def init(file):
     maze = []
@@ -138,7 +133,6 @@ def init(file):
 
     return maze, coord_space, start, end, max_x, max_y
 
-
 def find_key_nodes(maze, coord_space):
     """finds the start and goal nodes in the maze"""
     goal_index = 0
@@ -167,14 +161,12 @@ def find_key_nodes(maze, coord_space):
     print("MAZE FORMAT ERROR: start and/or goal nodes not marked")
     sys.exit()
 
-
 def mark_path(path, maze):
     for node in path:
         index = node.center['index']
 
         if maze[index[0]][index[1]] == ' ':
             maze[index[0]][index[1]] = "*"
-
 
 def get_neighbours(node, maze, coord_space):
     x, y = node.center['coordinate']
@@ -213,13 +205,11 @@ def get_neighbours(node, maze, coord_space):
 
     return neighbours
 
-
 def manhattan_distance(point: node, end: node):
     point_coords = point.center['coordinate']
     end_coords = end.center['coordinate']
 
     return abs(point_coords[0] - end_coords[0]) + abs(point_coords[1] - end_coords[1])
-
 
 ## a* implementation ##
 def a_star(start: node, end: node, coord_space, maze):

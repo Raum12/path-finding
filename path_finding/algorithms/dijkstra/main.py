@@ -3,7 +3,6 @@ import sys, time
 sys.path.append('../../../')
 from path_finding.API import API
 
-    
 def main():
     if len(sys.argv) >= 2:
         try:
@@ -25,7 +24,6 @@ def main():
 
         API.mark_path(path, maze)
         
-
         API.visualise(maze)
         print(f"Execution time: {end_time - start_time}")
 
@@ -45,4 +43,3 @@ def main():
     
 if __name__ == "__main__":
     main()
-    
