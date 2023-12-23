@@ -13,7 +13,9 @@ It is important to note that if the files sourced from this repository do not al
 
 Run the following command in either the dijkstra or a-star directories:
 
-`python main.py {maze file directory}`
+```
+python main.py {maze file directory}
+```
 
 https://github.com/Raum12/path-finding/assets/116556858/1825ecbb-7c4c-4aad-85c0-15dd366ff6eb
 
@@ -23,7 +25,9 @@ https://github.com/Raum12/path-finding/assets/116556858/42fdd2a9-b627-4186-9c43-
 # Unit tests
 Run the following command in either the dijkstra or a-star directory (depending on which algorithm you want to test):
 
-`python main.py {maze file directory} --unittest {number of unittest iterations}`
+```
+python main.py {maze file directory} --unittest {number of unittest iterations}
+```
 
 The video below demonstrates this more clearly for Dijkstra's algorithm.
 
