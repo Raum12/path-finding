@@ -1,6 +1,8 @@
 # Text-based maze solver
 
-In the `src/tools/api.py` file, you will find implementations of Dijkstra's algorithm and the A* algorithm used for solving the text file mazes in the `mazes` directory. This repository allows you to choose different algorithms and heuristics to solve a maze via the command line. Currently, it supports only Manhattan and Euclidean heuristics along with A* and Dijkstra's algorithms; however, the API is designed to support [new configurations of your own heuristic functions and algorithms](#configure-your-own-heuristic-function-or-algorithm).
+This repository allows you to select different algorithms and heuristic combinations to solve a maze via the command line. Then, it outputs a visual representation of the solution that was found. Currently, it supports Manhattan and Euclidean heuristics along with A* and Dijkstra's algorithms; however, the API is designed to support [new configurations of your own heuristic functions and algorithms](#configure-your-own-heuristic-function-or-algorithm) aswell.
+
+In the `src/tools/api.py` file, you will find implementations of Dijkstra's algorithm and the A* algorithm used for solving the text file mazes in the `mazes` directory. 
 
 The directory named `src/mazes` contains text files that represent various mazes. However, this implementation supports the use of additional text files beyond those found in this specific directory. Any file that follows the format described in `mazes/format.md` will work correctly (source: [mackorone's maze files repository](https://github.com/micromouseonline/mazefiles)). You may find these in [mackorone's maze files repository](https://github.com/micromouseonline/mazefiles); any file obtained from this repository will be compatible.
 
