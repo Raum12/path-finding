@@ -1,5 +1,5 @@
 from .node import node
-import sys, time, statistics
+import sys, time, statistics, math
 
 def read_maze(maze, filename):
     maze_file = open(filename, "r")
@@ -210,6 +210,16 @@ def manhattan_distance(point: node, end: node):
     end_coords = end.center['coordinate']
 
     return abs(point_coords[0] - end_coords[0]) + abs(point_coords[1] - end_coords[1])
+
+def euclidean_distance(point: node, end: node):
+    point_coords = point.center['coordinate']
+    end_coords = end.center['coordinate']
+    
+    p = [point_coords[0], point_coords[1]]
+    q = [end_coords[0], end_coords[1]]
+    
+    return math.dist(p,q)
+
 
 ## a* implementation ##
 def a_star(start: node, end: node, coord_space, maze):
