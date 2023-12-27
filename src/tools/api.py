@@ -10,7 +10,7 @@ def read_maze(maze, filename):
         row = [i for i in column]
         maze.append(row)
 
-def unit_test(loops: int, algorithm, file):
+def unit_test(loops: int, algorithm, heuristic_function, file):
     print(f"\nstarting unit test of length {loops}...\n")
 
     sum = 0
@@ -27,7 +27,7 @@ def unit_test(loops: int, algorithm, file):
         print(f"{run_string}:")
 
         start_time = time.time()
-        algorithm(start, end, coord_space, maze)
+        algorithm(start=start, end=end, heuristic_function=heuristic_function, coord_space=coord_space, maze=maze)
         end_time = time.time()
 
         time_elapsed = end_time - start_time
@@ -222,11 +222,11 @@ def euclidean_distance(point: node, end: node):
 
 
 ## a* implementation ##
-def a_star(start: node, end: node, coord_space, maze):
+def a_star(start: node, end: node, heuristic_function, coord_space, maze):
     open_set = [start]
     closed_set = []
 
-    start.f_cost = manhattan_distance(start, end)
+    start.f_cost = heuristic_function(start, end)
     start.g_cost = 0
     start.h_cost = start.f_cost + start.g_cost
 
@@ -251,7 +251,7 @@ def a_star(start: node, end: node, coord_space, maze):
 
         for neighbour in get_neighbours(current, maze, coord_space):
             if neighbour.g_cost is None or current.g_cost + 1 < neighbour.g_cost:
-                neighbour.f_cost = manhattan_distance(neighbour, end)
+                neighbour.f_cost = heuristic_function(neighbour, end)
                 neighbour.g_cost = current.g_cost + 1
 
                 if neighbour in closed_set:
@@ -268,7 +268,7 @@ def a_star(start: node, end: node, coord_space, maze):
     return None 
 
 # use manhattan for edge length 
-def dijkstra(start: node, end: node, coord_space, maze):
+def dijkstra(start: node, end: node, heuristic_function, coord_space, maze):
     queue = [] # Q
     empty_set = [] # S
 
@@ -283,7 +283,7 @@ def dijkstra(start: node, end: node, coord_space, maze):
         empty_set.append(current)
 
         for neighbour in get_neighbours(current, maze, coord_space):
-            tentative_dist = current.dist + manhattan_distance(current, neighbour)
+            tentative_dist = current.dist + heuristic_function(current, neighbour)
 
             if tentative_dist < neighbour.dist:
                 neighbour.dist = tentative_dist
