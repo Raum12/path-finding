@@ -16,20 +16,45 @@ Enter the `src` directory and run the following:
 python main.py {maze_file_path} {algorithm} {heuristic_function}
 ```
 
-https://github.com/Raum12/path-finding/assets/116556858/1825ecbb-7c4c-4aad-85c0-15dd366ff6eb
+The video below demonstrates this more clearly for the A* algorithm.
 
-https://github.com/Raum12/path-finding/assets/116556858/42fdd2a9-b627-4186-9c43-d80234554d2b
+https://github.com/Raum490/path-finding/assets/116556858/9198e724-5624-4fb7-bf81-e37b37dea3f4
+
+Please note, however, that you may also solve with Dijkstra's algorithm or use a different heuristic function. The current [map dictionary](https://github.com/Raum490/path-finding/blob/main/src/tools/mapper.py) contains the following keys which may be used in the command line: 
+
+```
+import tools.api as api
+
+map = {
+    "manhattan": api.manhattan_distance,
+    "euclidean": api.euclidean_distance,
+    "a_star": api.a_star,
+    "dijkstra": api.dijkstra
+}
+```
+
+For more details, read through this [section](#configure-your-own-heuristic-function-or-algorithm).
 
 ## Unit tests
+This will allow you to solve a maze multiple times with a specific algorithm and heuristic function. Then it will output the:
+1. Mean
+2. Standard Deviation
+3. Minimum
+4. Maximum
+   
+of the run
+
 Enter the `src` directory and run the following to perform unit tests:
 
 ```
 python main.py {maze_file_path} {algorithm} {heuristic_function} --unittest {number_of_test_iterations}
 ```
 
-The video below demonstrates this more clearly for Dijkstra's algorithm.
+The video below demonstrates this more clearly for the A* algorithm.
 
-https://github.com/Raum12/path-finding/assets/116556858/57b583fe-82ef-4520-8387-f008d1632834
+https://github.com/Raum490/path-finding/assets/116556858/d88ef7be-09cc-4335-88c1-15dec58369b1
+
+To use other algorithms like Dijkstra or other heuristic functions like euclidean, simply replace a_star with its key in the [map dictionary](https://github.com/Raum490/path-finding/blob/main/src/tools/mapper.py). 
 
 ## Configure your own heuristic function or algorithm
 
